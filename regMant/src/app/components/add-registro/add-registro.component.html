@@ -1,0 +1,24 @@
+  <h4>Selecciona el Equipo</h4>
+  <mat-form-field>
+    <mat-label>Equipo</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let eq of equipos" [value]="eq.value">
+        {{eq.nombre_eq}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <h4>Selecciona la Intervencion</h4>
+  <mat-form-field>
+    <mat-label>Intervencion</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let eq of intervencion" [value]="eq.value">
+        {{eq.nombre_inter}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Recursos</mat-label>
+    <input matInput placeholder=" Recursos" >
+  </mat-form-field>

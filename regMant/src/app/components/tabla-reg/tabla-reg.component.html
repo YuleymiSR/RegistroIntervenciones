@@ -1,0 +1,83 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 text-center">
+          
+        
+        <h6> <i class="fas fa-laptop"></i> Nombre del Equipo</h6>
+        <h5>{{p_cadauno[0].nombre_eq}}</h5>
+
+        <h6 class="mt-3"> <i class="fas fa-vote-yea"></i> Intervención</h6>
+        <h5> {{p_cadauno[0].nombre_inter}}</h5>
+
+        <h6 class="mt-3"> <i class="far fa-calendar"></i> Fecha del Registro</h6>
+        <h6>{{p_cadauno[0].fecha_reg}}</h6>
+
+        <h6 class="mt-3"> <i class="fas fa-clipboard-list"></i> Recursos Utilizados</h6>
+        <h5>{{p_cadauno[0].descripcion_recur}}</h5>
+
+        <h6 class="mt-3"> <i class="fas fa-comments" ></i> Comentarios:</h6>
+        <h5>{{p_cadauno[0].coment_reg}}</h5>
+        <!-- TABLA -->
+  
+        <mat-form-field class="m-3" *ngIf="load">
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtro">
+        </mat-form-field>
+        
+        <div class="mat-elvation-z8 m-2" *ngIf="load">
+          <table mat-table [dataSource]="dataSource" matSort>
+        
+            <!-- ID Column -->
+            <ng-container matColumnDef="Id">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+              <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+            </ng-container>
+        
+            <!-- ID Column -->
+            <ng-container matColumnDef="Equipo">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Equipo </th>
+              <td mat-cell *matCellDef="let row"> {{row.nombre_eq}} </td>
+            </ng-container>
+        
+            <!-- Progress Column -->
+            <ng-container matColumnDef="Intervención">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Intervención </th>
+              <td mat-cell *matCellDef="let row"> {{row.nombre_inter}} </td>
+            </ng-container>
+        
+            <!-- Color Column -->
+            <ng-container matColumnDef="Fecha">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha </th>
+              <td mat-cell *matCellDef="let row"> {{row.fecha_reg}} </td>
+            </ng-container>
+        
+            <ng-container matColumnDef="Ver">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Ver </th>
+              <td mat-cell *matCellDef="let row"> <button mat-raised-button color="warn" (click)="viewReg(row.registro_id)">
+                  Ver</button> </td>
+            </ng-container>
+        
+            <ng-container matColumnDef="Editar">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Editar </th>
+              <td mat-cell *matCellDef="let row"> <button mat-raised-button color="warn" (click)="editReg(row.registro_id)">
+                  Editar</button> </td>
+            </ng-container>
+        
+        
+        
+        
+        
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+            </tr>
+          </table>
+        
+          <mat-paginator [pageSizeOptions]="[15,20, 25]"></mat-paginator>
+        </div>
+  
+  
+      </div>
+    </div>
+  
+  </div>
+  
+  
