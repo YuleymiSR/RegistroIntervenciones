@@ -137,7 +137,7 @@ export class TablaRegComponent implements OnInit {
 
   viewReg(registro_id) {
     // console.log(prod_id);
-    this.nprod = this._sRest.setIdProd(registro_id);
+    this.nprod = this._sRest.setIdReg(registro_id);
     this.openDialogVer();
     // console.log(this.nprod);
     return this.nprod
@@ -157,7 +157,7 @@ export class TablaRegComponent implements OnInit {
 
   editReg(registro_id) {
     // console.log(prod_id);
-    this.nprod = this._sRest.setIdProd(registro_id);
+    this.nprod = this._sRest.setIdReg(registro_id);
     this.openDialogEditar();
     // console.log(this.nprod);
     return this.nprod
